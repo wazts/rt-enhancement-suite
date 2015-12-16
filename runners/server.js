@@ -1,3 +1,9 @@
+/***
+ * @author Kyle Wagner
+ * @description A test server for trying out the various components used in the 
+ *              RTSE modules.
+ */
+ 
 var express = require('express');
 var app = express();
 
