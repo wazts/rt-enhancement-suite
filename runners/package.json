@@ -1,0 +1,15 @@
+{
+  "name": "rtes-runners",
+  "version": "1.0.0",
+  "description": "The runners to compile the RTES.",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Wagner",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.3",
+    "gulp": "^3.9.0"
+  }
+}
