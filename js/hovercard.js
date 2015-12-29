@@ -38,7 +38,11 @@ function populateUserHovercard(hovercard, user) {
     cardContent.append(innerContent);
     
     // --- Footer
-    var footer = $('<div>').addClass('rtes-card-footer row').html(g_rtes_token);
+    var footer = $('<div>').addClass('rtes-card-footer row')
+    
+    // Add the buttons if we can.
+    var State = __webpack_require__(2);
+    footer.append(State.get('user'));
     cardContent.append(footer);
     
     hovercard.data("loaded", true);
@@ -68,16 +72,13 @@ function loadUserData(hovercard, href) {
             userProfile.profileControls = $(data).find('.left-sidebar > .details');
             console.log(userProfile.profileControls);
             
+            // --- Find the token
+            userProfile.token = $(data).find('input[name="_token"]').val();
+            
             // --- Add to global
             g_rtes_storedUserData[user] = userProfile;
             populateUserHovercard(hovercard, g_rtes_storedUserData[user]);
-            
-            // --- Find the token
-            $(data).find('form > input').each(function(){
-                if ( $(this).attr('name') === '_token' ) {
-                    g_rtes_token = $(this).attr('value');
-                } 
-            });
+    
         });
         
     } else {
